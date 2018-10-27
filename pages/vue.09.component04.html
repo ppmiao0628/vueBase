@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vue-component04</title>
+    <script src="../asset/lib/vue.js"></script>
+    <link rel="stylesheet" href="../asset/css/style.css">
+</head>
+
+<body>
+    <h1>vue-component04</h1>
+    <div id="ppm">
+        <p>我是{{name}}</p>
+        <component :ppm-param="name" :is='which'></component>
+        <button style="color:purple;font-size: 20px" @click="changeComponent">changeComponent</button>
+    </div>
+</body>
+<script>
+    // 
+    var ppmComponentA = {
+        template: `
+                    <div>
+                        <h1 style="color:green">我是局部ppmComponentA组件,接受参数是：{{ppmParam}}</h1>
+                    </div>
+                `,
+        props: ["ppmParam"]
+    }
+    var ppmComponentB = {
+        template: `
+                    <div>
+                        <h1 style="color:red">我是局部ppmComponentB组件,接受参数是：{{ppmParam}}</h1>
+                    </div>
+                `,
+        props: ["ppmParam"]
+    }
+    var ppmComponentC = {
+        template: `
+                    <div>
+                        <h1 style="color:aquamarine">我是局部ppmComponentC组件,接受参数是：{{ppmParam}}</h1>
+                    </div>
+                `,
+        props: ["ppmParam"]
+    }
+    var app = new Vue({
+        el: '#ppm',
+        data: {
+            name: 'ppm',
+            which: 'ppmComponentB'
+        },
+        components: {
+            "ppmComponentA": ppmComponentA,
+            "ppmComponentB": ppmComponentB,
+            "ppmComponentC": ppmComponentC
+        },
+        methods: {
+            changeComponent: function () {
+                let arrs = ["ppmComponentA",
+                    "ppmComponentB",
+                    "ppmComponentC"
+                ];
+                let i = Math.floor(Math.random() * arrs.length);
+                console.log(arrs[i]);
+                this.which = arrs[i];
+            }
+        }
+    });
+</script>
+
+</html>
