@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vue-mixins</title>
+    <script src="../asset/lib/vue.js"></script>
+    <link rel="stylesheet" href="../asset/css/style.css">
+</head>
+
+<body>
+    <h1>vue-mixins</h1>
+    <div id="app">
+        {{num}}
+        <button @click='add(2)'>add</button>
+    </div>
+</body>
+<script>
+    // 
+    let mixConsole = {
+        updated: function() {
+            console.log('局部混入，发生变化啊的值为' + this.num);
+        }
+    };
+    Vue.mixin({
+        updated:function(){
+            console.log('全局的混入');
+        }
+    })
+    let app = new Vue({
+        el: '#app',
+        data: {
+            num: 1
+        },
+        methods: {
+            add: function (n) {
+                if (n) {
+                    this.num += n;
+                } else {
+                    this.num++
+                }
+            }
+        },
+        updated:function() {
+            console.log('构造函数内的updated');
+        },
+        mixins:[mixConsole]
+    })
+
+</script>
+
+</html>
