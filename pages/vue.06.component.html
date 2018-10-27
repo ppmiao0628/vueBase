@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue-component</title>
+    <script src="../asset/lib/vue.js"></script>
+    <link rel="stylesheet" href="../asset/css/style.css">
+</head>
+<body>
+    <h1>vue-component</h1>
+    <div id="ppm">
+        <p>我是{{name}}</p>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: '#ppm',
+        data: {
+            name: 'ppm'
+        },
+        methods: {
+            add: function () {
+            }
+        },
+        beforeCreate:function(){
+            console.log('1-beforeCreate 初始化之后');
+        },
+        created:function(){
+            console.log('2-created 创建完成');
+        },
+        beforeMount:function(){
+            console.log('3-beforeMount 挂载之前');
+        },
+        mounted:function(){
+            console.log('4-mounted 挂载');
+        },
+        beforeUpdate:function(){
+            console.log('5-beforeUpdate 数据更新前');
+        },
+        updated:function(){
+            console.log('6-updated 被更新后');
+        },
+        activated:function(){
+            console.log('7-activated');
+        },
+        deactivated:function(){
+            console.log('8-deactivated');
+        },
+        beforeDestroy:function(){
+            console.log('9-beforeDestroy 销毁之前');
+        },
+        destroyed:function(){
+            console.log('10-destroyed 销毁之后')
+        }
+    });
+</script>
+</html>
