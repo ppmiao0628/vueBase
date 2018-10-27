@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>extend扩展实例构造器</title>
+    <script src="../asset/lib/vue.js"></script>
+</head>
+<body>
+    <h1>extend扩展实例构造器</h1>
+    <ppm id="ppm"></ppm>
+    
+</body>
+<script>
+    var ppmExtend = Vue.extend({
+        template: "<p><a :href='ppmUrl'>{{ppmName}}</a></p>",
+        data: function(){
+            return {
+                ppmName:'keller',
+                ppmUrl:'https://github.com/ppmiao0628'
+            }
+        }
+    });
+    new ppmExtend().$mount('#ppm');
+</script>
+</html>
