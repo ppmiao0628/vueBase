@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vue-methods</title>
+    <script src="../asset/lib/vue.js"></script>
+    <link rel="stylesheet" href="../asset/css/style.css">
+</head>
+
+<body>
+    <h1>vue-methods</h1>
+    <div id="app">
+        {{num}}
+        <button @click='add(2)'>add</button>
+        <ppm @click.native='add(3)'></ppm>
+    </div>
+    <button onclick="app.add(4)">addout</button>
+</body>
+<script>
+    // 
+    let ppmExtend = Vue.extend({
+        template: `
+                <button>ppmadd</button>
+                `
+    });
+    let app = new Vue({
+        el: '#app',
+        data: {
+            num: 1
+        },
+        components:{
+            "ppm":ppmExtend
+        },
+        methods: {
+            add: function (n) {
+                if (n) {
+                    this.num += n;
+                } else {
+                    this.num++
+                }
+            }
+        }
+    })
+
+</script>
+
+</html>
