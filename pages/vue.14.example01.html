@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vue-example01</title>
+    <script src="../asset/lib/vue.js"></script>
+    <script src="../asset/lib/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" href="../asset/css/style.css">
+</head>
+
+<body>
+    <h1>vue-example01</h1>
+    <div id="app">
+        {{num}}
+        <div id="testdiv">vue</div>
+        <button @click='add(2)'>add</button>
+    </div>
+</body>
+<script>
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            num: 1
+        },
+        methods: {
+            add: function (n) {
+                console.log('原生方法');
+                this.num++
+            }
+        },
+        updated: function () {
+            console.log('构造函数内的updated');
+        },
+        mounted:function(){
+            $('#testdiv').html('jQuery改名字了')
+        }
+    })
+    app.add();
+
+</script>
+
+</html>
