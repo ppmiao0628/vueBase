@@ -1,0 +1,23 @@
+{
+  "name": "vuebase",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "live-server": "^1.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ppmiao0628/vueBase.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ppmiao0628/vueBase/issues"
+  },
+  "homepage": "https://github.com/ppmiao0628/vueBase#readme"
+}
