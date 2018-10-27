@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vue-component</title>
+    <script src="../asset/lib/vue.js"></script>
+    <link rel="stylesheet" href="../asset/css/style.css">
+</head>
+
+<body>
+    <h1>vue-component</h1>
+    <div id="ppm">
+        <p>我是{{name}}</p>
+        <ppm :ppm-param="name"></ppm>
+        
+    </div>
+</body>
+<script>
+    // 构造器外生成组件  嵌套  注意自上而下的顺序
+    var ppmSonComponent = {
+        template: `
+                    <div>
+                        <h1 style="color:red">我是子组件ppmSonComponent</h1>
+                    </div>
+                `
+    }
+    var ppmComponent = {
+        template: `
+                    <div>
+                        <h1 style="color:green">我是局部ppm组件,接受参数是：{{ppmParam}}</h1>
+                        <ppmSon></ppmSon>
+                    </div>
+                `,
+        props: ["ppmParam"],
+        components: {
+            "ppmSon": ppmSonComponent
+        }
+    };
+    var app = new Vue({
+        el: '#ppm',
+        data: {
+            name: 'ppm'
+        },
+        components: {
+            "ppm": ppmComponent
+        }
+    });
+</script>
+
+</html>
