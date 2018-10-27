@@ -2,15 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>vueset</title>
+    <title>vueset全局操作</title>
     <script src="../asset/lib/vue.js"></script>
+    <link rel="stylesheet" href="../asset/css/style.css">
 </head>
 <body>
-    <h1>vueset</h1>
-    <ppm id="ppm"></ppm>
-    
+    <h1>vueset全局操作</h1>
+    <div id="ppm">
+        <!-- <p>{{age}}</p> -->
+        <ul>
+            <li v-for="arr in arrs">{{arr}}</li>
+        </ul>
+    </div>
+    <button onclick="add()">add</button>
 </body>
 <script>
-    
+    // 更新数据
+    function add() {
+        console.log(app.arrs);
+        // Vue.set(outData, 'age', 25);
+        // app.age++;
+        // outData.age++
+        // outData.arrs[2] = '444';    //单独改变无效
+        Vue.set(app.arrs,2,'555');
+        console.log(app.arrs);
+    }
+    var outData = {
+        arrs: ['111','222','333'],
+        name: 'ppm',
+        age: 22
+    }
+    var app = new Vue({
+        el: '#ppm',
+        data: outData
+    })
 </script>
 </html>
