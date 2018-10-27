@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>directive</title>
+    <script src="../asset/lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-jsppm="color">{{num}}</div>
+        <button @click="add">add</button>
+    </div>
+    <button onclick="unbind()">ubind</button>
+</body>
+<script>
+    function unbind() {
+        app.$destroy();
+    }
+    // Vue.directive('jsppm', function (el, binding) {
+    //     console.log(el);
+    //     console.log(binding);
+    //     el.style = 'color:' + binding.value;
+    // });
+    Vue.directive('jsppm', {
+        bind: function(el, binding) {   //刚绑定指令触发
+            console.log('1-bind');
+            console.log(binding)
+            el.style = 'color:' + binding.value
+        },
+        inserted: function() {  //元素插入父节点时候触发
+            console.log('2-inserted');
+        },
+        update: function() {    //每次元素更新时触发
+            console.log('3-update');
+        },
+        componentUpdated: function() {  //元素更新完成时触发
+            console.log('4-componentUpdated');
+        },
+        unbind:function() { //指令解绑这时候触发
+            console.log('5-unbind');
+        },
+    });
+    var app = new Vue({
+        el: '#app',
+        data: {
+            num: 1,
+            color: 'red'
+        },
+        methods: {
+            add:function () {
+                this.num ++;
+            }
+        }
+    })
+</script>
+</html>
