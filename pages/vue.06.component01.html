@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue-component</title>
+    <script src="../asset/lib/vue.js"></script>
+    <link rel="stylesheet" href="../asset/css/style.css">
+</head>
+<body>
+    <h1>vue-component</h1>
+    <div id="ppm">
+        <p>我是{{name}}</p>
+        <ppm></ppm>
+        <ppmpart></ppmpart>
+    </div>
+</body>
+<script>
+    // 全局组件
+    Vue.component('ppm',{
+        template: `
+            <div>
+                <h1 style="color:red">我是全局ppm组件</h1>
+            </div>
+        `
+    })
+    var app = new Vue({
+        el: '#ppm',
+        data: {
+            name: 'ppm'
+        },
+        components: {
+            "ppmpart": {
+                template: `
+                    <div>
+                        <h1 style="color:green">我是局部ppm组件</h1>
+                    </div>
+                `
+            }
+        }
+    });
+</script>
+</html>
