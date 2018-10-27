@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vue-template</title>
+    <script src="../asset/lib/vue.js"></script>
+    <link rel="stylesheet" href="../asset/css/style.css">
+</head>
+
+<body>
+    <h1>vue-template</h1>
+    <div id="ppm">
+        <p>我是{{name}}</p>
+    </div>
+
+    <div id="ppm1">
+        <p>我是{{name}}</p>
+        <template id='template'>
+            <div>
+                <p>我是{{name}}</p>
+                <h1 style="color:red">我是template1</h1>
+            </div>
+        </template>
+    </div>
+    <script type="x-template" id="template2">
+            <div>
+                    <p>我是{{name}}</p>
+                    <h1 style="color:red">我是template2</h1>
+            </div>
+    </script>
+</body>
+<script>
+    var app = new Vue({
+        el: '#ppm',
+        data: {
+            name: 'ppm'
+        },
+        methods: {
+            add: function () {
+            }
+        },
+        template: `
+            <div>
+                <p>我是{{name}}</p>
+                <h1 style="color:red">我是template</h1>
+            </div>
+        `
+    });
+
+    var app1 = new Vue({
+        el: '#ppm1',
+        data: {
+            name: 'ppm1'
+        },
+        methods: {
+            add: function () {
+            }
+        },
+        // template: '#template'
+        template: '#template2'
+    });
+</script>
+
+</html>
