@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vue-component04</title>
+    <script src="../asset/lib/vue.js"></script>
+    <link rel="stylesheet" href="../asset/css/style.css">
+</head>
+
+<body>
+    <h1>vue-component04</h1>
+    <ppm></ppm>
+</body>
+<script>
+    // 
+    let ppmExtend = Vue.extend({
+        template: `
+                    <div>
+                        <h1 style="color:green">我是{{name}}组件,接受外部参数是：{{ppmParam}}</h1>
+                    </div>
+                `,
+        data: function(){
+            return {
+                name: "ppmComponent"
+            }
+        },
+        props: ["ppmParam"]
+    });
+    new ppmExtend({propsData:{ppmParam:'外部参数ppmParam'}}).$mount('ppm');
+
+</script>
+
+</html>
