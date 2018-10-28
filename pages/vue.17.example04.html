@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vue-example03</title>
+    <script src="../asset/lib/vue.js"></script>
+    <script src="../asset/lib/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" href="../asset/css/style.css">
+</head>
+
+<body>
+    <h1>vue-example03</h1>
+    <div id="app">
+        <ppm-tmp :ppmparam='ppmArrs'></ppm-tmp>
+    </div>
+</body>
+
+<script>
+    Vue.component('ppmTmp',{
+        template: `
+                <div>
+                    <div v-for='p in ppmparam'>
+                        <p>id:{{p.id}}</p>
+                        <p>title:{{p.title}}</p>
+                    </div>
+                </div>
+                `,
+        props: ["ppmparam"]
+    })
+    let app = new Vue({
+        el: '#app',
+        data: {
+            ppmArrs: [
+                { id: 1, title: 'My journey with Vue' },
+                { id: 2, title: 'Blogging with Vue' },
+                { id: 3, title: 'Why Vue is so fun' }
+            ]
+        }
+    })
+</script>
+
+</html>
