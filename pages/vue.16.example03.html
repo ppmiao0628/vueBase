@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vue-example03</title>
+    <script src="../asset/lib/vue.js"></script>
+    <script src="../asset/lib/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" href="../asset/css/style.css">
+</head>
+
+<body>
+    <h1>vue-example03</h1>
+    <div id="app">
+        <ppmTmp>
+            <span slot='nameP'>{{ppmObj.name}}</span>
+            <span slot='age'>{{ppmObj.age}}</span>
+        </ppmTmp>
+
+    </div>
+    <template id="ppmTmp">
+        <div>
+            <p>名字：<slot name='nameP'></slot>
+            </p>
+            <p>年龄：<slot name='age'></slot>
+            </p>
+        </div>
+    </template>
+</body>
+
+<script>
+    let templateObj = {
+        template: '#ppmTmp'
+    }
+    let app = new Vue({
+        el: '#app',
+        data: {
+            ppmObj: {
+                name: 'ppm',
+                age: 24
+            }
+        },
+        components: {
+            'ppmTmp': templateObj
+        }
+    })
+</script>
+
+</html>
