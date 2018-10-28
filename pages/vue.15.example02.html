@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vue-example02</title>
+    <script src="../asset/lib/vue.js"></script>
+    <script src="../asset/lib/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" href="../asset/css/style.css">
+</head>
+
+<body>
+    <h1>vue-example02</h1>
+    <div id="app">
+        {{num}}
+        <div id="testdiv">vue</div>
+        <button @click='add(2)'>add</button>
+        <button onclick='reduce()'>reduce</button>
+    </div>
+</body>
+<script>
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            num: 1
+        },
+        methods: {
+            add: function (n) {
+                console.log('原生方法');
+                this.num++
+            }
+        },
+        updated: function () {
+            console.log('构造函数内的updated');
+        },
+        mounted:function(){
+            $('#testdiv').html('jQuery改名字了')
+        }
+    })
+    /*
+    $on 一直有效  $off可以关闭改方法
+    $once 仅一次有效
+    */
+    app.$on("reduce",function(){
+        this.num--;
+    });
+    function reduce() {
+        app.$emit("reduce");
+    }
+
+</script>
+
+</html>
