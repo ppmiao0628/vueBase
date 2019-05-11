@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vue-example03</title>
+    <script src="../asset/lib/vue.js"></script>
+    <script src="../asset/lib/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <script src="../asset/lib/eventUtils.js"></script>
+</head>
+
+<body>
+<div id="app">
+    <h1 style="position:absolute;">vue-example03</h1>
+    <button id="but" class="chunk" style="width: 100%; margin: auto;">click</button>
+    <div v-text="showevent"></div>
+    <div id="pushFresh" class="push-fresh" style="margin-top: 10rem;"></div>
+    <div v-text="moveY" class="head-console"></div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <div id="outframe" ref="outframe">
+        <ul @click="getNodeIterator()">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <div v-for="arr in arrs" v-text="arr" class="item-class"></div>
+    </div>
+
+</div>
+</body>
+
+<script>
+    let app = new Vue({
+        el: '#app',
+        data() {
+            return {
+                arrs: [],
+                moveY: 0,
+                showevent: '',
+                ppmArrs: [
+                    {id: 1, title: 'My journey with Vue'},
+                    {id: 2, title: 'Blogging with Vue'},
+                    {id: 3, title: 'Why Vue is so fun'}
+                ]
+            }
+        },
+        mounted() {
+            this.updateArr();
+            let startPos = 0;
+
+            EventUtils.addHandler(document.getElementById('but'), 'touchstart', (e)=>{
+                this.showevent += 'touchstart ';
+            });
+            EventUtils.addHandler(document.getElementById('but'), 'mouseover', (e)=>{
+                this.showevent += 'mouseover ';
+            });
+            EventUtils.addHandler(document.getElementById('but'), 'mousemove', (e)=>{
+                this.showevent += 'mousemove ';
+            });
+            EventUtils.addHandler(document.getElementById('but'), 'mousedown', (e)=>{
+                this.showevent += 'mousedown ';
+            });
+            EventUtils.addHandler(document.getElementById('but'), 'mouseup', (e)=>{
+                this.showevent += 'mouseup ';
+            });
+            EventUtils.addHandler(document.getElementById('but'), 'click', (e)=>{
+                this.showevent += 'click ';
+            });
+            EventUtils.addHandler(document.getElementById('but'), 'touchend', (e)=>{
+                this.showevent += 'touchend ';
+            });
+            EventUtils.addHandler(document.getElementById('outframe'), 'mousewheel', (e)=>{
+                console.log(EventUtils.getEvent(e).wheelDelta);
+            });
+            document.documentElement.addEventListener('keypress', ev => {
+                console.log(ev);
+            });
+            document.documentElement.addEventListener('keydown', ev => {
+                console.log(ev);
+            });
+            document.documentElement.addEventListener('click', ev => {
+                console.log(ev.pageY);
+                console.log(ev.clientY);
+            });
+            document.getElementById('outframe').addEventListener('mouseout', (e) => {
+                console.log(e.relatedTarget);
+            });
+            document.getElementById('outframe').addEventListener('touchstart', (e) => {
+                // console.log(e.touches[0].pageY);
+                startPos = e.touches[0].pageY;
+            });
+            document.getElementById('outframe').addEventListener('touchmove', (e) => {
+                let moveLen = e.touches[0].pageY - startPos;
+                if (document.documentElement.scrollTop>0) {
+                    return;
+                }
+                document.getElementById('pushFresh').style.height = `${moveLen}px`;
+                // console.log(document.getElementById('pushFresh').style.transform);
+                // let node = document.documentElement;
+                // console.log(node.scrollTop);
+
+            });
+            document.getElementById('outframe').addEventListener('touchend', (e) => {
+                document.getElementById('pushFresh').style.height = `0px`;
+                // document.getElementById('pushFresh').style.transform = `translateY(0px)`;
+            });
+            // document.getElementById('outframe').addEventListener('scroll', (e) => {
+            //
+            // });
+            // console.log(this.$refs);
+        },
+        methods: {
+            updateArr() {
+                for (let i = 0; i < 20; i++) {
+                    this.arrs.push(i);
+                }
+            },
+            getNodeIterator(root = document.getElementById('outframe')) {
+                let filter = {
+                    acceptNode: function (node) {
+                        return node.tagName.toLowerCase() === 'div' ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+                    }
+                };
+                let iterator = document.createNodeIterator(root, NodeFilter.SHOW_ELEMENT, filter, false);
+                let node = iterator.nextNode();
+                while (node) {
+                    console.log(node);
+                    node = iterator.nextNode();
+                }
+            }
+        }
+    })
+</script>
+<style>
+    .push-fresh {
+        width: 100%;
+        height: 0px;
+        background-color: #00aaaa;
+    }
+
+    .item-class {
+        background-color: gray;
+        width: 100%;
+        font-size: 50px;
+        height: 8rem;
+        border: 1px solid;
+    }
+
+    .chunk {
+        background-color: forestgreen;
+        width: 20rem;
+        font-size: 50px;
+        height: 8rem;
+        border: 1px solid;
+    }
+
+    .head-console {
+        position: fixed;
+        font-size: 40px;
+        color: red;
+    }
+</style>
+</html>

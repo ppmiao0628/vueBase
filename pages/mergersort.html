@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vue-example03</title>
+    <script src="../asset/lib/vue.js"></script>
+    <link rel="stylesheet" href="../asset/css/style.css">
+</head>
+
+<body>
+<h1>vue-example03</h1>
+<div id="app" style="float: inherit">
+    <!--<div style="float: left">-->
+        <!--<p v-for="arr in arrs" v-text="arr"></p>-->
+    <!--</div>-->
+    <!--<div  style="float: right">-->
+        <!--<p v-for="arr in newarrs" v-text="arr"></p>-->
+    <!--</div>-->
+    <div>{{newarrs}}</div>
+
+</div>
+</body>
+
+<script>
+    let app = new Vue({
+        el: '#app',
+        data() {
+            return {
+                arrs: [5,3,7,3,4,8,4,2],
+                newarrs: []
+            }
+        },
+        mounted() {
+            let baseArr = [];
+            for (let i=0;i<20000;i++){
+                baseArr.push(Math.floor(Math.random()*20000))
+            }
+            console.log(this.mergeSort(baseArr));
+            this.newarrs = this.mergeSort(baseArr);
+        },
+        methods: {
+            mergeSort(arr){
+                let self = this;
+                if (arr.length === 1) {
+                    return arr;
+                }
+                let mid = arr.length / 2;
+                let left_arr = arr.slice(0,mid);
+                let right_arr = arr.slice(mid);
+                return this.merge(self.mergeSort(left_arr),self.mergeSort(right_arr));
+            },
+            merge(left,right){
+                let result = [];
+                while(left.length>0 && right.length>0) {
+                    if (left[0] < right[0]) {
+                        result.push(left.shift());
+                    } else {
+                        result.push(right.shift());
+                    }
+                }
+                return result.concat(left).concat(right)
+            },
+            updateArr() {
+                for (let i = 0; i < 20; i++) {
+                    this.arrs.push(i);
+                }
+            }
+        }
+    })
+</script>
+<style>
+    .item-class {
+        background-color: gray;
+        width: 100%;
+        font-size: 50px;
+        height: 8rem;
+        border: 1px solid;
+    }
+
+    .chunk {
+        background-color: forestgreen;
+        width: 20rem;
+        font-size: 50px;
+        height: 8rem;
+        border: 1px solid;
+    }
+
+    .head-console {
+        position: fixed;
+        font-size: 40px;
+        color: red;
+    }
+</style>
+</html>
