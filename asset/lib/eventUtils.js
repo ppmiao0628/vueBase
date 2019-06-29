@@ -86,5 +86,22 @@ var EventUtils = {
         } else {
             return event.keyCode;
         }
+    },
+    getClipboardText: function (event) {
+        let clipboardData = (event.clipboardData||window.clipboardData);
+        return clipboardData.getData('text');
+    },
+    setClipboarText: function (event, value) {
+        if (event.clipboardData) {
+            return event.clipboardData.setData('text/plain', value);
+        } else if (window.clipboardData) {
+            // IE
+            return window.clipboardData.setData('text', value);
+        }
+    }
+};
+var typeCheckUtils = {
+    isArray: function (value) {
+        return Object.prototype.toString.call(value) === "[object Array]";
     }
 };

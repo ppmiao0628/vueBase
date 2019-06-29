@@ -51,6 +51,10 @@
         },
         mounted() {
             this.updateArr();
+            let arr = [0,2];
+            let arr2 = '[0,2]';
+            console.log(typeCheckUtils.isArray(arr));
+            console.log(typeCheckUtils.isArray(arr2));
             let startPos = 0;
 
             EventUtils.addHandler(document.getElementById('but'), 'touchstart', (e)=>{
