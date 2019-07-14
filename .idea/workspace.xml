@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7ea81d4-23ac-4bb2-bd6b-c4e6f7a42fae" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/asset/img/IMG_8791.JPG" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/asset/video/IMG_7531.MOV" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/asset/video/安河桥1.MP4" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/pages/drag-demo.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/pages/video-play.html" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/asset/lib/eventUtils.js" afterPath="$PROJECT_DIR$/asset/lib/eventUtils.js" />
-      <change beforePath="$PROJECT_DIR$/pages/upload.example.html" afterPath="$PROJECT_DIR$/pages/upload.example.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,7 +26,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="upload.example.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="upload.example.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/upload.example.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="253">
@@ -46,18 +39,18 @@
       <file leaf-file-name="eventUtils.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/asset/lib/eventUtils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="14" />
+            <state relative-caret-position="496">
+              <caret line="110" column="75" lean-forward="false" selection-start-line="110" selection-start-column="75" selection-end-line="110" selection-end-column="75" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="drag-demo.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="drag-demo.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/drag-demo.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+            <state relative-caret-position="95">
+              <caret line="5" column="15" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
               <folding>
                 <element signature="n#style#0;n#video#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <marker date="1559575592657" expanded="true" signature="843:974" ph="..." />
@@ -148,8 +141,8 @@
         <option value="$USER_HOME$/Movies/mathematics/xidaoaili/video-play.html" />
         <option value="$PROJECT_DIR$/pages/video-play.html" />
         <option value="$PROJECT_DIR$/pages/drag-demo.html" />
-        <option value="$PROJECT_DIR$/asset/lib/eventUtils.js" />
         <option value="$PROJECT_DIR$/pages/upload.example.html" />
+        <option value="$PROJECT_DIR$/asset/lib/eventUtils.js" />
       </list>
     </option>
   </component>
@@ -287,16 +280,15 @@
       <workItem from="1558966765858" duration="3141000" />
       <workItem from="1559574889006" duration="1152000" />
       <workItem from="1561171499737" duration="18000" />
-      <workItem from="1561776616259" duration="407000" />
+      <workItem from="1561776616259" duration="1768000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26730000" />
+    <option name="totallyTimeSpent" value="28091000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14466546" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -749,30 +741,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/drag-demo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-          <folding>
-            <element signature="n#style#0;n#video#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1559575592657" expanded="true" signature="843:974" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/asset/lib/eventUtils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/upload.example.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
           <caret line="55" column="53" lean-forward="true" selection-start-line="55" selection-start-column="53" selection-end-line="55" selection-end-column="53" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asset/lib/eventUtils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="110" column="75" lean-forward="false" selection-start-line="110" selection-start-column="75" selection-end-line="110" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/drag-demo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="15" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+          <folding>
+            <element signature="n#style#0;n#video#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1559575592657" expanded="true" signature="843:974" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

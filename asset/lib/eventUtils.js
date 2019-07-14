@@ -103,5 +103,11 @@ var EventUtils = {
 var typeCheckUtils = {
     isArray: function (value) {
         return Object.prototype.toString.call(value) === "[object Array]";
+    },
+    isFunction(value) {
+        return Object.prototype.toString.call(value) === '[object Function]';
+    },
+    isRegExp(value){
+        return Object.prototype.toString.call(value) === '[object RegExp]';
     }
 };
